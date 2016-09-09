@@ -38,7 +38,22 @@ public class KaraokeMachine {
     public void run() {
         String choice = "";
         do {
-            
-        }
+            try {
+                choice = promptAction();
+                switch(choice) {
+                    case "add":
+                        // Todo: add a new song
+                        break;
+                    case "quit":
+                        System.out.println("Thanks for playing!");
+                        break;
+                    default:
+                        System.out.printf("Unknown choice: '%s'. Try again. \n\n\n", choice);
+                }
+            } catch (IOException ioe) {
+                System.out.println("Problem with input");
+                ioe.printStackTrace();
+            }
+        } while (!choice.equals("quit"));
     }
 }
